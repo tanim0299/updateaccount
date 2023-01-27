@@ -52,15 +52,15 @@
                         <td>
                             @if($v->status == 1)
                             <div class="checkbox_wrap d-flex align-items-center">
-                                <label class="form-label lms_checkbox_1" for="course_3" name="">
-                                <input value="{{$v->id}}" type="checkbox" id="course_3" name="status" checked id="menuId" >
+                                <label class="form-label lms_checkbox_1" for="course_{{$v->id}}" name="">
+                                <input value="{{$v->id}}" type="checkbox" id="course_{{$v->id}}" name="status" checked id="menuId" >
                                 <div class="slider-check round" id="status" data-id="{{$v->id}}"></div>
                                 </label>
                             </div>
                             @else
                             <div class="checkbox_wrap d-flex align-items-center">
-                                <label class="form-label lms_checkbox_1" for="course_3" name="">
-                                <input value="{{$v->id}}" type="checkbox" id="course_3" name="status" id="menuId">
+                                <label class="form-label lms_checkbox_1" for="course_{{$v->id}}" name="">
+                                <input value="{{$v->id}}" type="checkbox" id="course_{{$v->id}}" name="status" id="menuId">
                                 <div class="slider-check round" id="status" data-id="{{$v->id}}"></div>
                                 </label>
                             </div>
@@ -93,7 +93,9 @@
 
     <script>
         // alert();
-        $('#status').on('click',function(e){
+
+
+        $(document).on('click','#status',function(e){
             // alert();
             var menu_id = $(this).attr('data-id');
 

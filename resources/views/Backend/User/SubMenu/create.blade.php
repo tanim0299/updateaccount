@@ -32,7 +32,7 @@
                         <div class="white_card_body">
                         <label>Serial No</label><span class="text-danger" style="font-size: 15px;">*</span>
                             <div class="mt-1">
-                            <input type="text" class="@error('serial_no') is-invalid @enderror form-control form-control-sm" name="serial_no" id="inputText" placeholder="">
+                            <input type="text" class="@error('serial_no') is-invalid @enderror form-control form-control-sm" name="serial_no" id="inputText" value="{{old('serial_no')}}">
                             </div>
                             @error('serial_no')
                                 <div class="alert alert-danger alert-sm">{{ $message }}</div>
@@ -46,10 +46,10 @@
                         <label>Main Menu Name</label><span class="text-danger" style="font-size: 15px;">*</span>
                             <div class="mt-1">
                             <select class="form-control form-control-sm js-example-basic-single" name="main_menu_id">
-                                <option value="">--- Select One ----</option>
+                                <option selected disabled >--- Select One ----</option>
                                 @if($main_menu)
                                 @foreach ($main_menu as $v)
-                                <option value="{{$v->id}}">{{$v->main_menu_name}}</option>
+                                <option @if(old('main_menu_id') == $v->id) selected @endif value="{{$v->id}}">{{$v->main_menu_name}}</option>
                                 @endforeach
                                 @endif
                             </select>
@@ -65,7 +65,7 @@
                         <div class="white_card_body">
                         <label>Sub Menu Name</label><span class="text-danger" style="font-size: 15px;">*</span>
                             <div class="mt-1">
-                            <input type="text" class="@error('sub_menu_name') is-invalid @enderror form-control form-control-sm" name="sub_menu_name" id="inputText" placeholder="">
+                            <input type="text" class="@error('sub_menu_name') is-invalid @enderror form-control form-control-sm" name="sub_menu_name" id="inputText" value="{{old('sub_menu_name')}}">
                             </div>
                             @error('sub_menu_name')
                                 <div class="alert alert-danger alert-sm">{{ $message }}</div>
@@ -77,7 +77,7 @@
                         <div class="white_card_body">
                         <label>Route Name</label><span class="text-danger" style="font-size: 15px;">*</span>
                             <div class="mt-1">
-                            <input type="text" class="form-control form-control-sm @error('route') is-invalid @enderror" name="route" id="inputText" value="">
+                            <input type="text" class="form-control form-control-sm @error('route') is-invalid @enderror" name="route" id="inputText" value="{{old('route')}}">
                             </div>
                             @error('route')
                                 <div class="alert alert-danger alert-sm">{{ $message }}</div>

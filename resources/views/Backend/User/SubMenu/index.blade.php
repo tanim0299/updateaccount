@@ -11,10 +11,10 @@
     <div class="main-title">
         <div class="row">
             <div class="col-6">
-                <h3 class="m-0">Main Menu</h3>
+                <h3 class="m-0">Sub Menu</h3>
             </div>
             <div class="col-6" style="text-align: right;">
-                <a href="{{route('main_menu.create')}}" class="btn btn-sm btn-dark">Add New</a>
+                <a href="{{route('sub_menu.create')}}" class="btn btn-sm btn-dark">Add New</a>
             </div>
         </div>
     </div>
@@ -29,7 +29,8 @@
                     <tr>
                         <th>Serial No</th>
                         <th>Main Menu Name</th>
-                        <th>Icon</th>
+                        <th>Sub Menu Name</th>
+                        <th>Route</th>
                         <th>Status</th>
                         <th>Action</th>
                         <th>Manage</th>
@@ -39,9 +40,10 @@
                     @if($data)
                     @foreach ($data as $v)
                     <tr>
-                        <td>{{$v->menu_id}}</td>
+                        <td>{{$v->sub_menu_id}}</td>
                         <td>{{$v->main_menu_name}}</td>
-                        <td><i class="{{$v->icon}}"></i></td>
+                        <td>{{$v->sub_menu_name}}</i></td>
+                        <td>{{$v->route}}</i></td>
                         <td>
                             @if($v->status == 1)
                             <div class="badge bg-success">Active</div>
@@ -52,15 +54,15 @@
                         <td>
                             @if($v->status == 1)
                             <div class="checkbox_wrap d-flex align-items-center">
-                                <label class="form-label lms_checkbox_1" for="course_3" name="">
-                                <input value="{{$v->id}}" type="checkbox" id="course_3" name="status" checked id="menuId" >
+                                <label class="form-label lms_checkbox_1" for="course_{{$v->id}}" name="">
+                                <input value="{{$v->id}}" type="checkbox" id="course_{{$v->id}}" name="status" checked id="menuId" >
                                 <div class="slider-check round" id="status" data-id="{{$v->id}}"></div>
                                 </label>
                             </div>
                             @else
                             <div class="checkbox_wrap d-flex align-items-center">
-                                <label class="form-label lms_checkbox_1" for="course_3" name="">
-                                <input value="{{$v->id}}" type="checkbox" id="course_3" name="status" id="menuId">
+                                <label class="form-label lms_checkbox_1" for="course_{{$v->id}}" name="">
+                                <input value="{{$v->id}}" type="checkbox" id="course_{{$v->id}}" name="status" id="menuId">
                                 <div class="slider-check round" id="status" data-id="{{$v->id}}"></div>
                                 </label>
                             </div>
@@ -68,8 +70,8 @@
                         </td>
                         <td>
 
-                            <a style="float: left;" href="{{route('main_menu.edit',$v->id)}}" class="action_btn mr_10"><i class="far fa-edit"></i></a>
-                            <form action="{{ route('main_menu.destroy',$v->id) }}" method="post">
+                            <a style="float: left;" href="{{route('sub_menu.edit',$v->id)}}" class="action_btn mr_10"><i class="far fa-edit"></i></a>
+                            <form action="{{ route('sub_menu.destroy',$v->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button onclick="return confirm('Are Your Sure?')" type="submit" class="action_btn mr_10"><i class="fas fa-trash"></i></button>
@@ -93,7 +95,7 @@
 
     <script>
         // alert();
-        $('#status').on('click',function(e){
+        $(document).on('click','#status',function(e){
             // alert();
             var menu_id = $(this).attr('data-id');
 
@@ -104,7 +106,7 @@
                     'X-CSRF-TOKEN' : '{{ csrf_token() }}'
                 },
 
-                url : '{{ url('mainMenuStatusChange') }}',
+                url : '{{ url('subMenuStatusChange') }}',
 
                 type : 'POST',
 

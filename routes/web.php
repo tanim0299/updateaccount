@@ -26,6 +26,9 @@ Auth::routes();
 Route::get('/home',[BackendController::class,'index']);
 
 Route::post('mainMenuStatusChange', [MainMenuController::class,'mainMenuStatusChange']);
+
+
+Route::post('subMenuStatusChange', [SubMenuController::class,'subMenuStatusChange']);
 Route::resources([
     'main_menu'=> MainMenuController::class,
     'sub_menu'=> SubMenuController::class,

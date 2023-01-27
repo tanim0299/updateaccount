@@ -16,7 +16,7 @@ class CreateSubMenusTable extends Migration
         Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
             $table->string('sub_menu_id',200)->nullable();
-            $table->integer('serial_no',200)->nullable();
+            $table->integer('serial_no')->nullable();
             $table->bigInteger('main_menu_id')->unsigned();
             $table->foreign('main_menu_id')->references('id')->on('main_menus');
             $table->string('sub_menu_name',100)->nullable();
