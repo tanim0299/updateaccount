@@ -44,10 +44,12 @@
 
 <script src="{{asset('Backend')}}/js/jquery1-3.4.1.min.js"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
-<body class="crm_body_bg">
+<body class="crm_body_bg" id="bodyTag">
 
 
 <nav class="sidebar">
@@ -367,7 +369,7 @@ How can I help you?</P>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -474,6 +476,7 @@ How can I help you?</P>
     $('.js-example-basic-single').select2();
 });
 </script>
+
 
 
 </body>

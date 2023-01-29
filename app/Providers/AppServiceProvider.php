@@ -27,8 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', function($view){
-            $view->with('main_menu', main_menu::where('status',1)->get());
-            $view->with('sub_menu', sub_menu::where('status',1)->get());
+            $view->with('main_menu', main_menu::where('status',1)->orderby('serial_no','ASC')->get());
+            $view->with('sub_menu', sub_menu::where('status',1)->orderby('serial_no','ASC')->get());
         });
     }
 }

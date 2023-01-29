@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\SubMenuController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::post('subMenuStatusChange', [SubMenuController::class,'subMenuStatusChang
 Route::resources([
     'main_menu'=> MainMenuController::class,
     'sub_menu'=> SubMenuController::class,
+    'employee_info'=> EmployeeController::class,
 ]);
