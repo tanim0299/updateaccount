@@ -21,21 +21,4 @@ table.phone-input tr td input {
     width: 25px;
     height: 28px;
 }
-.loading-window {
-    /* background: white; */
-    position: absolute;
-    width: 1000px;
-    height: 600px;
-    top: 249px;
-    z-index: 999;
-    overflow: auto; /* Enable scroll if needed */
-}
-.loading-window {
-    text-align: center;
-}
 
-.spinner-grow {
-    margin-top: 41px;
-    width: 200px;
-    height: 200px;
-}

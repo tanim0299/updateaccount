@@ -30,6 +30,8 @@ Route::post('mainMenuStatusChange', [MainMenuController::class,'mainMenuStatusCh
 
 
 Route::post('subMenuStatusChange', [SubMenuController::class,'subMenuStatusChange']);
+
+Route::post('employeeStatusChange', [EmployeeController::class,'employeeStatusChange']);
 Route::resources([
     'main_menu'=> MainMenuController::class,
     'sub_menu'=> SubMenuController::class,

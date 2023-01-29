@@ -191,8 +191,8 @@
                         <div class="white_card_body">
                         <label>Permnent Adress</label>
                             <div class="mt-1">
-                            <textarea class="form-control @error('permanent_address') is-invalid @enderror" name="permanent_address"></textarea>
-                            @error('permanent_address')
+                            <textarea class="form-control @error('permenant_address') is-invalid @enderror" name="permenant_address"></textarea>
+                            @error('permenant_address')
                                 <div class="alert alert-danger alert-sm">{{ $message }}</div>
                             @enderror
                         </div>
@@ -334,12 +334,8 @@
 
                     data : new FormData(this),
 
-                    dataType:'JSON',
-
+                    cache:false,
                     contentType: false,
-
-                    cache: false,
-
                     processData: false,
 
                     beforeSend : function() {
@@ -359,6 +355,8 @@
                         {
                             swal('', 'Employee Information Added Faild', 'error');
                         }
+                        $('#form').trigger("reset");
+                        window.location.href = "{{ url('employee_info')}}";
                         $('#bodyTag').prop('disabled',false);
                         $('#Loading').hide();
                         $('#submit').show();

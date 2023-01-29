@@ -42,6 +42,13 @@
 <link rel="stylesheet" href="{{asset('Backend')}}/css/style1.css" />
 <link rel="stylesheet" href="{{asset('Backend')}}/css/colors/default.css" id="colorSkinCSS">
 
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.22/dist/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.22/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.22/dist/js/uikit-icons.min.js"></script>
+
 <script src="{{asset('Backend')}}/js/jquery1-3.4.1.min.js"></script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -477,7 +484,9 @@ How can I help you?</P>
 });
 </script>
 
-
+{{-- <script>
+    swal('', 'TEST', 'warning');
+</script> --}}
 
 </body>
 

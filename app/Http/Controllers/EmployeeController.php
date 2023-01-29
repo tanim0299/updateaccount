@@ -35,7 +35,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+
+        $data = employee_info::all();
+
+        return view('Backend.User.Employee.index',compact('data'));
     }
 
     /**
@@ -121,7 +124,7 @@ class EmployeeController extends Controller
             {
                 $imageName = rand().'.'.$file1->getClientOriginalExtension();
 
-                $file1->move(base_path().'/Backend/img/EmployeeImage'.$imageName);
+                $file1->move(base_path().'/Backend/img/EmployeeImage/',$imageName);
 
                 employee_info::where('emp_id',$emp_id)->update(['image'=>$imageName]);
             }
@@ -129,7 +132,7 @@ class EmployeeController extends Controller
             {
                 $imageName = rand().'.'.$file2->getClientOriginalExtension();
 
-                $file2->move(base_path().'/Backend/img/EmployeeNid'.$imageName);
+                $file2->move(base_path().'/Backend/img/EmployeeNid/',$imageName);
 
                 employee_info::where('emp_id',$emp_id)->update(['nid'=>$imageName]);
             }
@@ -188,5 +191,23 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function employeeStatusChange(Request $request)
+    {
+
+        $check = employee_info::find($request->employee_id);
+
+        if($check->status == 1)
+        {
+            employee_info::find($request->employee_id)->update(['status'=>0]);
+        }
+        else
+        {
+            employee_info::find($request->employee_id)->update(['status'=>1]);
+        }
+
+        return 1;
+
     }
 }
